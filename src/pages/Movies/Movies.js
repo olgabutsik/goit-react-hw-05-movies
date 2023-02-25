@@ -5,6 +5,7 @@ import { StyledForm, StyledInput, StyledButton } from './Movies.styled';
 import StyledContainer from 'components/Container/Container.styled';
 import MovieList from 'components/MovieList/MovieList';
 import { api } from 'pages/Home/Home';
+import Loader from 'components/Loader/Loader';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -32,7 +33,7 @@ const Movies = () => {
   }, [query]);
 
   return (
-    <Suspense fallback="null">
+    <Suspense fallback={<Loader />}>
       <StyledContainer>
         <StyledForm onSubmit={onSubmit}>
           <StyledInput name="query" />

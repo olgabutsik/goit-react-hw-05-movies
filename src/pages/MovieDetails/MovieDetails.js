@@ -5,6 +5,7 @@ import { StyledText } from 'components/MovieCard/MovieCard.styled';
 import MovieCard from 'components/MovieCard/MovieCard';
 import StyledContainer from 'components/Container/Container.styled';
 import { api } from 'pages/Home/Home';
+import Loader from 'components/Loader/Loader';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -57,7 +58,7 @@ const MovieDetails = () => {
           </li>
         </ul>
       </StyledAdditional>
-      <Suspense fallback="null">
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </StyledContainer>
